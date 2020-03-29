@@ -1,0 +1,48 @@
+spring:
+  datasource:
+    druid:
+      db-type: com.alibaba.druid.pool.DruidDataSource
+      initial-size: 10
+      max-active: 20
+      min-adle: 0
+      max-wait: 6000
+      timeBetweenEvictionRunsMillis: 6000 # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size:  20
+      validation-query: SELECT 1 FROM DUAL
+      validation-query-timeout: 6000  #测试有效的超时时间
+      test-on-borrow: false #获取连接时测试是否有效
+      test-on-return: false #归还连接时测试是否有效
+      test-while-idle:  true  #
+      time-between-eviction-runs-millis:  300000
+      min-evictable-idle-time-millis: 0 #最小逐出时间
+      max-evictable-idle-time-millis: 6000  #
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/nan?useSSL=true&useUnicode=true&characterEncoding=UTF-8
+          &characterSetResults=UTF-8&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: 123
+
+
+############MybatisPlus#############
+
+
+mybatis-plus:
+  global-config:
+    db-config:
+      #主键类型0:数据库🆔ID自增;1:用户输入id;2:全局唯一id(数字类型唯一id);3:全局唯一id,UUID;
+      id-type: auto
+      #字段策略0:忽略判断;1:非NULL判断;2:非空判断
+      field-strategy: not_empty
+      #驼峰下划线转换
+      column-underline: true
+      #逻辑删除配置
+      logic-delete-value: 2
+      logic-not-delete-value: 1
+      #数据库大写下划线转换
+      capital-mode: true
+    mapper-registry-cache: true
+    #mapper热加载
+    #refresh: true
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  type-aliases-package: com.cn.dbcenters.model

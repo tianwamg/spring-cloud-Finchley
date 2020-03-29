@@ -1,0 +1,15 @@
+server:
+  port: 8763
+
+spring:
+  application:
+    name: service-clientcms
+
+eureka:
+  client:
+    service-url:
+      defaultZone:  http://admin:admin@localhost:8761/eureka/
+      register-with-eureka: true
+      #从eureka上检索服务
+      fetch-register: true
+

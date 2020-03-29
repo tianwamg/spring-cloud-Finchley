@@ -1,0 +1,25 @@
+server:
+  port: 9761
+
+spring:
+  application:
+    name: service-server
+  security:
+    basic:
+      enable: true #开启HTTP basic认证
+    user:
+      name: admin
+      password: admin
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone:  http://${spring.application.name}:${spring.security.user.password}@${eureka.instance.hostname}:8761/eureka/
+    #单机不需要注册到自身，集群的时候为true
+    register-with-eureka: true
+    fetch-registry: true
+  server:
+    enable-self-preservation: false #禁用自我保护
+    eviction-interval-timer-in-ms: 2000
