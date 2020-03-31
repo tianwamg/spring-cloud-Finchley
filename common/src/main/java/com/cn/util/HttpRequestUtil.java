@@ -9,6 +9,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.apache.http.message.BasicNameValuePair;
 
 import java.io.BufferedReader;
@@ -22,13 +23,21 @@ import java.util.Set;
 
 public class HttpRequestUtil {
 
+    private static CloseableHttpClient closeableHttpClient;
+    static{
+        PoolingHttpClientConnectionManager manager = new PoolingHttpClientConnectionManager();
+        manager.setMaxTotal(100);
+        manager.setDefaultMaxPerRoute(20);
+        closeableHttpClient = HttpClients.custom().setConnectionManager(manager).build();
+    }
+
     public static String httpGet(String url){
         CloseableHttpResponse response = null;
         BufferedReader in = null;
         String result = "";
         try{
             HttpGet httpGet = new HttpGet(url);
-            CloseableHttpClient closeableHttpClient = HttpClients.createDefault();
+           // CloseableHttpClient closeableHttpClient = HttpClients.createDefault();
             RequestConfig config = RequestConfig.custom().setConnectTimeout(60000).setConnectionRequestTimeout(60000).setSocketTimeout(60000).build();
             httpGet.setConfig(config);
             httpGet.setHeader("Content-type","application/json;charset=utf-8");
@@ -69,7 +78,7 @@ public class HttpRequestUtil {
         String result = "";
         try {
             HttpPost httpPost = new HttpPost(url);
-            CloseableHttpClient closeableHttpClient = HttpClients.createDefault();
+            //CloseableHttpClient closeableHttpClient = HttpClients.createDefault();
             RequestConfig requestConfig = RequestConfig.custom().setConnectTimeout(60000).setConnectionRequestTimeout(60000).setSocketTimeout(60000).build();
             httpPost.setConfig(requestConfig);
             //设置header
