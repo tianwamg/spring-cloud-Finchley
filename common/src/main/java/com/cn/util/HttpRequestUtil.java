@@ -4,6 +4,7 @@ import org.apache.http.NameValuePair;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -21,15 +22,45 @@ import java.util.Set;
 
 public class HttpRequestUtil {
 
-    public static String httpGet(){
-        //TODO
-        return "";
+    public static String httpGet(String url){
+        CloseableHttpResponse response = null;
+        BufferedReader in = null;
+        String result = "";
+        try{
+            HttpGet httpGet = new HttpGet(url);
+            CloseableHttpClient closeableHttpClient = HttpClients.createDefault();
+            RequestConfig config = RequestConfig.custom().setConnectTimeout(60000).setConnectionRequestTimeout(60000).setSocketTimeout(60000).build();
+            httpGet.setConfig(config);
+            httpGet.setHeader("Content-type","application/json;charset=utf-8");
+            httpGet.setHeader("Accept","application/json");
+            response = closeableHttpClient.execute(httpGet);
+            in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+            StringBuilder stringBuilder = new StringBuilder("");
+            String line = "";
+            String NL = System.getProperty("line.separator");
+            while ((line = in.readLine())!= null){
+                stringBuilder.append(line + NL);
+            }
+            in.close();
+            result = stringBuilder.toString();
+        }catch (IOException e){
+            e.printStackTrace();
+        }finally {
+            if(response != null){
+                try {
+                    response.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return result;
     }
 
     /**
      * post请求formdata格式
      * @param url
-     * @param params
+     * @param jsonStr
      * @return
      */
     public static String httpPostFormdata(String url, String jsonStr){
@@ -42,7 +73,8 @@ public class HttpRequestUtil {
             RequestConfig requestConfig = RequestConfig.custom().setConnectTimeout(60000).setConnectionRequestTimeout(60000).setSocketTimeout(60000).build();
             httpPost.setConfig(requestConfig);
             //设置header
-            httpPost.setHeader("Content-Type","application/x-www-form-urlencoded");
+            httpPost.setHeader("Content-type","application/x-www-form-urlencoded");
+            httpPost.setHeader("Accept","application/json");
             //组织请求参数
             /*List<NameValuePair> list = new ArrayList<>();
             if(params != null && params.size() >0){
