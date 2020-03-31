@@ -40,7 +40,7 @@ public class HttpRequestUtil {
            // CloseableHttpClient closeableHttpClient = HttpClients.createDefault();
             RequestConfig config = RequestConfig.custom().setConnectTimeout(60000).setConnectionRequestTimeout(60000).setSocketTimeout(60000).build();
             httpGet.setConfig(config);
-            httpGet.setHeader("Content-type","application/json;charset=utf-8");
+            httpGet.setHeader("Content-Type","application/json;charset=utf-8");
             httpGet.setHeader("Accept","application/json");
             response = closeableHttpClient.execute(httpGet);
             in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
@@ -82,7 +82,7 @@ public class HttpRequestUtil {
             RequestConfig requestConfig = RequestConfig.custom().setConnectTimeout(60000).setConnectionRequestTimeout(60000).setSocketTimeout(60000).build();
             httpPost.setConfig(requestConfig);
             //设置header
-            httpPost.setHeader("Content-type","application/x-www-form-urlencoded");
+            httpPost.setHeader("Content-Type","application/x-www-form-urlencoded");
             httpPost.setHeader("Accept","application/json");
             //组织请求参数
             /*List<NameValuePair> list = new ArrayList<>();
