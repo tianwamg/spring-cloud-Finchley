@@ -23,6 +23,15 @@ sharding:
         default-database-strategy:
           inline:
             sharding-column: id
-            algorithm-expression: {id % 2}
+            algorithm-expression:db$->{id % 2}
       #分表策略，分表取决于id行
         tables:
+          user:
+            key-generator-column-name:  id
+      #答应执行的数据库及语句
+      props:
+          sql:
+            show: true
+spring:
+  main:
+    allow-bean-definition-overriding: true
