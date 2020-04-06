@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -14,12 +16,17 @@ public class UserController {
     @Autowired
     UserService userService;
 
+
     @GetMapping("/test")
     public String test(){
         User user = userService.getById(1);
         System.out.print(user.toString());
         Integer count = userService.count();
         System.out.print(count);
+        user = userService.selectById(3);
+        List<User> list = userService.list();
+        list.forEach(System.out::println);
         return user.toString();
+
     }
 }

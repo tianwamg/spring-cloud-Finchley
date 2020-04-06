@@ -15,8 +15,8 @@ spring:
       test-on-return: false #归还连接时测试是否有效
       test-while-idle:  true  #
       time-between-eviction-runs-millis:  300000
-      min-evictable-idle-time-millis: 0 #最小逐出时间
-      max-evictable-idle-time-millis: 6000  #
+      min-evictable-idle-time-millis: 30000 #最小逐出时间
+      max-evictable-idle-time-millis: 60000  #
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/nan?useSSL=true&useUnicode=true&characterEncoding=UTF-8
           &characterSetResults=UTF-8&zeroDateTimeBehavior=convertToNull
@@ -46,3 +46,5 @@ mybatis-plus:
     #refresh: true
   mapper-locations: classpath:/mapper/*Mapper.xml
   type-aliases-package: com.cn.dbcenters.model
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

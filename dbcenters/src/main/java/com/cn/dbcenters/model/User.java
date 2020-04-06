@@ -27,10 +27,10 @@ public class User extends Model {
     private short gender;
 
     @TableField(value = "create_time",fill = FieldFill.INSERT)
-    private Date createtime;
+    private Date createTime;
 
     @TableField(value = "update_time",fill = FieldFill.INSERT_UPDATE)
-    private Date updatetime;
+    private Date updateTime;
 
     @TableField("status")
     @TableLogic

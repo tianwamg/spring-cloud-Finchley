@@ -63,7 +63,7 @@
         </dependency>
 
         <!--shardingsphere-->
-        <dependency>
+        <!--<dependency>
             <groupId>io.shardingsphere</groupId>
             <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
             <version>3.1.0</version>
@@ -73,7 +73,7 @@
             <groupId>io.shardingsphere</groupId>
             <artifactId>sharding-jdbc-spring-namespace</artifactId>
             <version>3.1.0</version>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>org.projectlombok</groupId>
