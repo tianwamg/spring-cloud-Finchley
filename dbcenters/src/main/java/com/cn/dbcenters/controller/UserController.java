@@ -19,13 +19,13 @@ public class UserController {
 
     @GetMapping("/test")
     public String test(){
-        User user = userService.getById(1);
+        /*User user = userService.getById(1);
         System.out.print(user.toString());
         Integer count = userService.count();
-        System.out.print(count);
-        user = userService.selectById(3);
-        List<User> list = userService.list();
-        list.forEach(System.out::println);
+        System.out.print(count);*/
+        User user = userService.selectById(5);
+        //List<User> list = userService.list();
+        //list.forEach(System.out::println);
         return user.toString();
 
     }
