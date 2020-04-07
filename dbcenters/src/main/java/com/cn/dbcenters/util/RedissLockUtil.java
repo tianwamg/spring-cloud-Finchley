@@ -1,7 +1,9 @@
 package com.cn.dbcenters.util;
 
+import org.redisson.Redisson;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
+import org.redisson.config.Config;
 
 import java.util.concurrent.TimeUnit;
 
@@ -9,8 +11,12 @@ public class RedissLockUtil {
 
     private static RedissonClient redissonClient;
 
-    public void setRedissonClient(RedissonClient locker) {
-        redissonClient = locker;
+    static {
+        Config config = new Config();
+        config.useClusterServers()
+                .addNodeAddress("redis://127.0.0.1:6379")
+                .setScanInterval(2000);
+        redissonClient = Redisson.create(config);
     }
 
     /**
