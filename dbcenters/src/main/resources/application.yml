@@ -5,6 +5,11 @@ spring:
     name: service-dbcenters
   profiles:
     include: mybatis,redis
+  devtools:
+    restart:
+      enabled: true                       #热部署生效
+      additional-paths: src/main/java     #设置重启的目录，检索目录(resources/static,resorces/templates)
+      #exclude: WEB-INF/**                 #classpath目录下的WEB-INF文件夹内容修改不重启
 
 eureka:
   client:

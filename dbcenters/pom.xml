@@ -96,6 +96,14 @@
             <artifactId>reactor-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!-- 热加载 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+            <scope>runtime</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -103,6 +111,19 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork><!-- 如果没有该配置，热部署的devtools不生效 -->
+                </configuration>
+
+                <!--springloaded 和 devtools同样的效果，有设置devtools，可不设置springloaded-->
+                <!--<dependencies>
+                    &lt;!&ndash; spring热部署 &ndash;&gt;
+                    <dependency>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>springloaded</artifactId>
+                        <version>2.0.4.RELEASE</version>
+                    </dependency>
+                </dependencies>-->
             </plugin>
         </plugins>
     </build>
