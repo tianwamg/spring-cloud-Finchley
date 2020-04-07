@@ -7,7 +7,7 @@ import org.redisson.config.Config;
 
 import java.util.concurrent.TimeUnit;
 
-public class RedissLockUtil {
+public class RedissonLockUtil {
 
     private static RedissonClient redissonClient;
 
