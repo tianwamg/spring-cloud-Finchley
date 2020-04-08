@@ -4,7 +4,7 @@ spring:
   application:
     name: service-dbcenters
   profiles:
-    include: mybatis,redis
+    include: mybatis,redis,mongo
   devtools:
     restart:
       enabled: true                       #热部署生效
