@@ -13,9 +13,9 @@ public class RedissonLockUtil {
 
     static {
         Config config = new Config();
-        config.useClusterServers()
-                .addNodeAddress("redis://127.0.0.1:6379")
-                .setScanInterval(2000);
+        config.useSingleServer()
+                .setAddress("redis://127.0.0.1:6379");
+                //.setScanInterval(2000);
         redissonClient = Redisson.create(config);
     }
 
