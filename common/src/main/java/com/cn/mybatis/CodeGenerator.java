@@ -1,14 +1,14 @@
-package com.cn.dbcenters;
+package com.cn.mybatis;
 
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
-import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
-import com.baomidou.mybatisplus.generator.config.GlobalConfig;
-import com.baomidou.mybatisplus.generator.config.PackageConfig;
-import com.baomidou.mybatisplus.generator.config.StrategyConfig;
+import com.baomidou.mybatisplus.generator.InjectionConfig;
+import com.baomidou.mybatisplus.generator.config.*;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class CodeGenerator {
@@ -39,7 +39,7 @@ public class CodeGenerator {
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
         String projectPath = System.getProperty("user.dir");
-        gc.setOutputDir(projectPath + "/dbcenters/src/main/java");
+        gc.setOutputDir(projectPath + "/common/src/main/java");
         gc.setAuthor("Ranger");
         gc.setOpen(false);
         // gc.setSwagger2(true); 实体属性 Swagger2 注解
@@ -57,7 +57,7 @@ public class CodeGenerator {
 
        // 包配置
         PackageConfig pc = new PackageConfig();
-        pc.setParent("com.cn")
+        pc.setParent("com.cn.test")
                 .setController("controller")
                 .setEntity("beans")
                 .setService("service")
@@ -81,6 +81,20 @@ public class CodeGenerator {
         strategy.setControllerMappingHyphenStyle(true);
         strategy.setTablePrefix(pc.getModuleName() + "_");
         mpg.setStrategy(strategy);
+
+        InjectionConfig cfg = new InjectionConfig() {
+            @Override
+            public void initMap() {
+                // to do nothing
+            }
+        };
+
+        List<FileOutConfig> focList = new ArrayList<>(); // 自定义输出配置
+
+
+        TemplateConfig tc = new TemplateConfig();
+        tc.setController("/templates/controller.java.vm");
+        mpg.setTemplate(tc);
         mpg.execute();
     }
 }
