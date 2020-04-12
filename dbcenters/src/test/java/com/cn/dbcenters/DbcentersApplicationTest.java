@@ -14,6 +14,6 @@ public class DbcentersApplicationTest {
     public void test(){
         /*User user = userService.selectById(1);
         System.out.print(user.toString());*/
-        System.out.print(123);
+        System.out.print(System.getProperty("user.dir"));
     }
 }
