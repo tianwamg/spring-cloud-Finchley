@@ -117,4 +117,47 @@ public class HttpRequestUtil {
         }
         return result;
     }
+
+    /**
+     * post请求formdata格式
+     * @param url
+     * @param jsonString
+     * @return
+     */
+    public static String httpPostFormdata(String url, String jsonString) {
+        CloseableHttpResponse response = null;
+        BufferedReader in = null;
+        String result = "";
+        try {
+            HttpPost httpPost = new HttpPost(url);
+            RequestConfig requestConfig = RequestConfig.custom().setConnectTimeout(30000).setConnectionRequestTimeout(30000).setSocketTimeout(30000).build();
+            httpPost.setConfig(requestConfig);
+            httpPost.setConfig(requestConfig);
+            httpPost.addHeader("Content-type", "application/x-www-form-urlencoded; charset=utf-8");
+            httpPost.setHeader("Accept", "application/json");
+            httpPost.setEntity(new StringEntity(jsonString, Charset.forName("UTF-8")));
+
+            response = closeableHttpClient.execute(httpPost);
+            in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+            StringBuffer sb = new StringBuffer("");
+            String line = "";
+            String NL = System.getProperty("line.separator");
+            while ((line = in.readLine()) != null) {
+                sb.append(line + NL);
+            }
+            in.close();
+            result = sb.toString();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (null != response) {
+                    response.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return result;
+    }
 }
