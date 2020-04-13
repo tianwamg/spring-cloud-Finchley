@@ -72,7 +72,7 @@ public class HttpRequestUtil {
      * @param jsonStr
      * @return
      */
-    public static String httpPostFormdata(String url, String jsonStr){
+    public static String httpPostFormdata(String url, Map<String,String> params){
         CloseableHttpResponse response = null;
         BufferedReader in = null;
         String result = "";
@@ -85,15 +85,15 @@ public class HttpRequestUtil {
             httpPost.setHeader("Content-Type","application/x-www-form-urlencoded");
             httpPost.setHeader("Accept","application/json");
             //组织请求参数
-            /*List<NameValuePair> list = new ArrayList<>();
+            List<NameValuePair> list = new ArrayList<>();
             if(params != null && params.size() >0){
                 Set<String> keySet = params.keySet();
                 for(String key:keySet){
                     list.add(new BasicNameValuePair(key,params.get(key)));
                 }
             }
-            httpPost.setEntity(new UrlEncodedFormEntity(list, "utf-8"));*/
-            httpPost.setEntity(new StringEntity(jsonStr, Charset.forName("UTF-8")));
+            httpPost.setEntity(new UrlEncodedFormEntity(list, "utf-8"));
+            //httpPost.setEntity(new StringEntity(jsonStr, Charset.forName("UTF-8")));
             response = closeableHttpClient.execute(httpPost);
             in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
             StringBuilder stringBuilder = new StringBuilder("");
