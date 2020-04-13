@@ -54,7 +54,7 @@ public class ${table.controllerName} {
     * @return 是否添加成功
     */
     @ApiOperation(value = "保存", notes = "保存数据到${entity}")
-    @RequestMapping(value = "/add.json", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
+    @RequestMapping(value = "/add", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
     public ResponseBean add${entity}(@RequestBody BaseForm<${entity}Form> param) {
         Integer result = ${table.entityPath}Service.save(param.getData());
         return new ResponseBean(result);
@@ -66,7 +66,7 @@ public class ${table.controllerName} {
     * @return 是否更改成功
     */
     @ApiOperation(value = "更新数据", notes = "根据主键id更新${entity}数据")
-    @RequestMapping(value = "/updateById.json", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
+    @RequestMapping(value = "/updateById", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
     public ResponseBean update${entity}ById(@RequestBody BaseForm<${entity}Form> param) {
         Integer result = ${table.entityPath}Service.updateById(param.getData());
         return new ResponseBean(result);
@@ -78,7 +78,7 @@ public class ${table.controllerName} {
     * @return 是否删除成功
     */
     @ApiOperation(value = "删除数据", notes = "根据主键id伪删除${entity}数据")
-    @RequestMapping(value = "/deleteById.json", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
+    @RequestMapping(value = "/deleteById", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
     public ResponseBean delete${entity}ById(@RequestBody BaseForm<String> param) {
         Integer result = ${table.entityPath}Service.deleteById(param.getData());
         return new ResponseBean(result);
@@ -90,7 +90,7 @@ public class ${table.controllerName} {
     * @return 查询结果
     */
     @ApiOperation(value = "获取单条数据", notes = "根据主键id获取${entity}数据")
-    @RequestMapping(value = "/getById.json", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
+    @RequestMapping(value = "/getById", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
     public ResponseBean get${entity}ById(@RequestBody BaseForm<String> param) {
         ${entity}VO result = ${table.entityPath}Service.selectById(param.getData());
         return new ResponseBean(result);
@@ -102,7 +102,7 @@ public class ${table.controllerName} {
     * @return 查询结果
     */
     @ApiOperation(value = "全部查询", notes = "查询${entity}全部数据")
-    @RequestMapping(value = "/queryAll.json", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
+    @RequestMapping(value = "/queryAll", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
     public ResponseBean get${entity}All(@RequestBody BaseForm<${entity}Form> param) {
         List<${entity}VO> result = ${table.entityPath}Service.selectAll(param.getData());
         return new ResponseBean(result);
@@ -114,7 +114,7 @@ public class ${table.controllerName} {
     * @return 查询结果
     */
     @ApiOperation(value = "分页查询", notes = "分页查询${entity}全部数据")
-    @RequestMapping(value = "/queryPage.json", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
+    @RequestMapping(value = "/queryPage", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
     public ResponseBean get${entity}Page(@RequestBody BaseForm<${entity}Form> param) {
         IPage<${entity}VO> result = ${table.entityPath}Service.selectPage(param.getData());
         return new ResponseBean(result);
