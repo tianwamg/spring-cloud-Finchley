@@ -1,6 +1,7 @@
 package com.cn.encrypt;
 
 import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.codec.digest.DigestUtils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -65,5 +66,10 @@ public class MD5 {
 
     public static String md5_16Upper(String text) {
         return md5_16(text).toUpperCase();
+    }
+
+    public static String md5Generator(String text){
+        String data = DigestUtils.md5Hex(text.getBytes());
+        return data;
     }
 }
