@@ -93,7 +93,12 @@ public class CodeGenerator {
 
 
         TemplateConfig tc = new TemplateConfig();
-        tc.setController("/templates/controller.java.vm");
+        tc.setController("/templates/controller.java.vm")
+                .setService("/templates/service.java.vm")
+                .setServiceImpl("/templates/serviceImpl.java.vm")
+                .setMapper("/templates/mapper.java.vm")
+                .setXml("/templates/mapper.xml.vm")
+                .setEntity("/templates/entity.java.vm");
         mpg.setTemplate(tc);
         mpg.execute();
     }

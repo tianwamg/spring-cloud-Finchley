@@ -37,6 +37,9 @@ open class ${table.serviceImplName} : ${superServiceImplClass}<${table.mapperNam
 #else
 public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.mapperName}, ${entity}> implements ${table.serviceName} {
 
+        @Autowired
+        private ${table.mapperName} ${table.entityPath}Mapper;
+
         @Override
         public Integer save(${entity}Form record) {
             ${entity} data = this.convertDO(record);
