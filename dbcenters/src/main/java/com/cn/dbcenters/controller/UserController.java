@@ -1,5 +1,7 @@
 package com.cn.dbcenters.controller;
 
+import com.alibaba.fastjson.JSONObject;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.cn.dbcenters.model.User;
 import com.cn.dbcenters.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +30,14 @@ public class UserController {
         //list.forEach(System.out::println);
         return user.toString();
 
+    }
+
+    @GetMapping(value = "/findall",produces = "application/json;charset=utf-8")
+    public IPage<User> findAll(Integer pageNum,Integer pageSize){
+        IPage<User> iPage = userService.findAll(pageNum,pageSize);
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("data",iPage);
+        jsonObject.put("code","200");
+        return iPage;
     }
 }

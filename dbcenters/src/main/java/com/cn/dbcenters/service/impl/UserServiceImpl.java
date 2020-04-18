@@ -1,5 +1,7 @@
 package com.cn.dbcenters.service.impl;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.cn.dbcenters.dao.UserMapper;
 import com.cn.dbcenters.model.User;
@@ -21,4 +23,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements Use
     public User selectById(Integer id) {
         return userMapper.selectById(id);
     }
+
+    @Override
+    @Cacheable(key="#p0",unless = "#result == null")
+    public IPage<User> findAll(Integer pageNum, Integer pageSize){
+        Page<User> page = new Page<>(pageNum,pageSize);
+        IPage<User> iPage = userMapper.selectPage(page,null);
+        return iPage;
+    }
+
 }
