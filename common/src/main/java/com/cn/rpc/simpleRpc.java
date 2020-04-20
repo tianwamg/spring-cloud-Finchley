@@ -9,6 +9,9 @@ import java.lang.reflect.Proxy;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/**
+ * 简单的实现RPC 类似dubbo实现 用接口实现 要实现接口 也就是直接使用jdk的动态代理来实现
+ */
 public class simpleRpc {
 
     public static void export(final Object service,int port)throws Exception{
