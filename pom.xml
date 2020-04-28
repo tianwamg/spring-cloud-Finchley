@@ -32,6 +32,7 @@
         <module>dbcenters</module>
         <module>ribbon</module>
         <module>feign</module>
+        <module>payment</module>
     </modules>
 
     <!-- 配置信息 -->
