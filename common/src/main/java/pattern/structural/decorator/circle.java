@@ -1,4 +1,4 @@
-package pattern.creational.decoration;
+package pattern.structural.decorator;
 
 public class circle implements shape {
     @Override

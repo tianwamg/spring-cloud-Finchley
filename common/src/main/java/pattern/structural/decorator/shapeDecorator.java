@@ -1,4 +1,4 @@
-package pattern.creational.decoration;
+package pattern.structural.decorator;
 
 public abstract class shapeDecorator implements shape {
 

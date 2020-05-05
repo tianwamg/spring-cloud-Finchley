@@ -1,4 +1,4 @@
-package pattern.creational.proxy;
+package pattern.structural.proxy;
 
 public class RealSubject implements Subject {
 

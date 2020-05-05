@@ -1,4 +1,4 @@
-package pattern.creational.adaptor;
+package pattern.structural.adaptor;
 
 public class MediaAdapter implements MediaPlayer {
 
