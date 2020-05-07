@@ -1,5 +1,8 @@
 package pattern.structural.decorator;
 
+/**
+ * 装饰器模式
+ */
 public class decoratorDemo {
 
     public static void main(String[] args) {

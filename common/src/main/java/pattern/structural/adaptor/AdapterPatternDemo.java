@@ -1,5 +1,8 @@
 package pattern.structural.adaptor;
 
+/**
+ * 适配器模式
+ */
 public class AdapterPatternDemo {
 
     public static void main(String[] args) {

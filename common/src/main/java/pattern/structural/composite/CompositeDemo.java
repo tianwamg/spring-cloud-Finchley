@@ -3,6 +3,9 @@ package pattern.structural.composite;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 组合模式
+ */
 public class CompositeDemo {
 
     public static void main(String[] args) {
