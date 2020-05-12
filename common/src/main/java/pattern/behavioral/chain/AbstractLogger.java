@@ -12,7 +12,7 @@ public abstract class AbstractLogger {
     protected AbstractLogger nextLogger;
 
     public void setNextLogger(AbstractLogger logger){
-        this.nextLogger = nextLogger;
+        this.nextLogger = logger;
     }
 
     public void logMessage(int level,String message){
