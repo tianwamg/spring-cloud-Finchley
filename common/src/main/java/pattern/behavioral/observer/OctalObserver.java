@@ -1,4 +1,4 @@
-package pattern.structural.observer;
+package pattern.behavioral.observer;
 
 public class OctalObserver extends Observer {
 

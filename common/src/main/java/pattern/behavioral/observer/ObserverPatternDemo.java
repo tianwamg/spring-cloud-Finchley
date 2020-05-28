@@ -1,4 +1,4 @@
-package pattern.structural.observer;
+package pattern.behavioral.observer;
 
 /**
  * 观察者模式
