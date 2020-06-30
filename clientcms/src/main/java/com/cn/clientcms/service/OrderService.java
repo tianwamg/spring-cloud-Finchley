@@ -3,7 +3,6 @@ package com.cn.clientcms.service;
 import com.cn.clientcms.bean.Item;
 import com.cn.clientcms.bean.Order;
 import com.cn.clientcms.bean.OrderDetail;
-import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.*;
