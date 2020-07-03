@@ -27,6 +27,7 @@
         <module>eureka-server</module>
         <module>eureka-provider</module>
         <module>eureka-provider2</module>
+        <module>eureka-ribbon</module>
         <module>common</module>
         <module>server</module>
         <module>serverss</module>
