@@ -30,6 +30,7 @@
         <module>eureka-ribbon</module>
         <module>eureka-feign</module>
         <module>eureka-hystrix</module>
+        <module>eureka-zuul</module>
         <module>common</module>
         <module>server</module>
         <module>serverss</module>
