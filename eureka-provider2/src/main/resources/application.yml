@@ -4,7 +4,7 @@ server:
 
 spring:
   application:
-    name: eureka-provider2
+    name: eureka-provider
 eureka:
   client:
     service-url:
