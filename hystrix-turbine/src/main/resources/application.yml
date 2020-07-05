@@ -1,0 +1,26 @@
+server:
+  port: 8773
+spring:
+  application:
+    name: hystrix-turbine
+eureka:
+  client:
+    service-url:
+      defaultZone:  http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+
+management:
+  endpoints:
+    web:
+      cors:
+        allowed-origins: "*"
+        allowed-methods: "*"
+      exposure:
+        include: "*"
+turbine:
+  app-config: hystrix-dashboard
+  aggregator:
+    cluster-config: default
+  cluster-name-expression: new String("defalut")
+  combine-host-port: true

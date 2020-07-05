@@ -34,6 +34,7 @@
         <module>config-server</module>
         <module>config-client</module>
         <module>hystrix-dashboard</module>
+        <module>hystrix-turbine</module>
         <module>common</module>
         <module>server</module>
         <module>serverss</module>
