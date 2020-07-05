@@ -5,6 +5,8 @@ server:
 spring:
   application:
     name: eureka-zuul
+  main:
+    allow-bean-definition-overriding: true
 
 eureka:
   client:
