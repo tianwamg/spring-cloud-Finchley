@@ -31,6 +31,7 @@
         <module>eureka-feign</module>
         <module>eureka-hystrix</module>
         <module>eureka-zuul</module>
+        <module>config-server</module>
         <module>common</module>
         <module>server</module>
         <module>serverss</module>
