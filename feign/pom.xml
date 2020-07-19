@@ -9,7 +9,7 @@
         <relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;
     </parent>-->
     <parent>
-        <artifactId>cloudmanage</artifactId>
+        <artifactId>spring-cloud-Finchley</artifactId>
         <groupId>com.cn</groupId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>

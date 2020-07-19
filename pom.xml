@@ -5,13 +5,13 @@
 
     <!-- 基本信息 -->
     <modelVersion>4.0.0</modelVersion>
-    <name>cloudmanage</name>
+    <name>spring-cloud-Finchley</name>
     <description>spring cloud project start</description>
     <packaging>pom</packaging>
 
     <!-- 父项目说明 -->
     <groupId>com.cn</groupId>
-    <artifactId>cloudmanage</artifactId>
+    <artifactId>spring-cloud-Finchley</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
     <!-- 继承springboot父工程 -->
