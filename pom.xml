@@ -34,6 +34,7 @@
         <module>config-server</module>
         <module>config-client</module>
         <module>config-bus</module>
+        <module>sleuth-zipkin</module>
         <module>hystrix-dashboard</module>
         <module>hystrix-turbine</module>
         <module>common</module>
