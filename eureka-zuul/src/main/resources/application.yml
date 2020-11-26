@@ -7,6 +7,12 @@ spring:
     name: eureka-zuul
   main:
     allow-bean-definition-overriding: true
+  zipkin:
+    base-url: http://localhost:9411
+    #discovery-client-enabled: false
+  sleuth:
+    sampler:
+      probability: 0.1
 
 eureka:
   client:
@@ -23,4 +29,7 @@ zuul:
     api-b:
       path: /api-b/**
       serviceId:  eureka-feign
+    api-c:
+      path: /api-zipkin/**
+      serviceId:  sleuth-zipkin
 
